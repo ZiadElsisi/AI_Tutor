@@ -4,11 +4,10 @@ from services.backend_client import call, BackendError
 def render():
     st.title("Upload and analyze a lecture")
     st.write("Upload text-based PDF slides or a PowerPoint deck. The backend extracts text and preserves slide numbers.")
-    with st.form("lecture-upload"):
-        title=st.text_input("Lecture title")
-        subject=st.text_input("Subject (optional)")
-        file=st.file_uploader("Lecture slides", type=["pdf","pptx"], help="Maximum 20 MiB. Scanned image-only PDFs are not OCR processed.")
-        submitted=st.form_submit_button("Analyze lecture", type="primary")
+    title=st.text_input("Lecture title", key="lecture-title")
+    subject=st.text_input("Subject (optional)", key="lecture-subject")
+    file=st.file_uploader("Lecture slides", type=["pdf","pptx"], help="Maximum 20 MiB. Scanned image-only PDFs are not OCR processed.", key="lecture-file")
+    submitted=st.button("Analyze lecture", type="primary", key="analyze-lecture")
     if submitted:
         if file is None:
             st.error("Choose a PDF or PowerPoint file first.")
