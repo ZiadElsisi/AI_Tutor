@@ -8,8 +8,11 @@ def render():
         title=st.text_input("Lecture title")
         subject=st.text_input("Subject (optional)")
         file=st.file_uploader("Lecture slides", type=["pdf","pptx"], help="Maximum 20 MiB. Scanned image-only PDFs are not OCR processed.")
-        submitted=st.form_submit_button("Analyze lecture", type="primary", disabled=file is None)
-    if submitted and file:
+        submitted=st.form_submit_button("Analyze lecture", type="primary")
+    if submitted:
+        if file is None:
+            st.error("Choose a PDF or PowerPoint file first.")
+            return
         if file.size > 20*1024*1024: st.error("File exceeds the 20 MiB limit."); return
         with st.spinner("Extracting slides and building a lecture index…"):
             try:
