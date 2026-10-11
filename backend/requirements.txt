@@ -1,0 +1,11 @@
+fastapi==0.115.12
+uvicorn[standard]==0.34.2
+pydantic==2.11.4
+python-multipart==0.0.20
+PyMuPDF==1.25.5
+python-pptx==1.0.2
+sentence-transformers==4.1.0
+transformers==4.51.3
+accelerate==1.6.0
+torch>=2.6.0
+numpy==2.2.5

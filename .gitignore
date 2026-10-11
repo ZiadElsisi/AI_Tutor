@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.venv/
+.venv311/
+venv/
+.env
+.streamlit/secrets.toml
+*.sqlite3
+*.db
+*.ipynb_checkpoints/
+.pytest_cache/
+uploads/
+*.pdf
+*.pptx
